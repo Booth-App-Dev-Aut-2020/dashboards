@@ -1,12 +1,12 @@
-<h1> Comvert <%=@first_currency%> </h1>
+<h1> Convert <%=@first_currency%> </h1>
 
-<p> Go <a href="/"> back </a> . </p>
+<p> Go <a href="/forex"> back </a> . </p>
 
 <ul>
 <% @array_symbols.each do |symbol| %>
   <li>
     <a href="/forex/<%=@first_currency%>/<%=symbol%>"> 
-    Convert <%=@first_currency%> to <%=symbol%>...
+    Convert 1 <%=@first_currency%> to <%=symbol%>...
     </a>
   </li>
 <%end%>

@@ -22,12 +22,11 @@ end
 def conversion
   @first_currency = params.fetch("first_symbol")
   @second_currency = params.fetch("second_symbol")
-  url="https://api.exchangerate.host/symbols"
+  url="https://api.exchangerate.host/convert?from=" + @first_currency + "&to=" + @second_currency
   raw_data = open(url).read
   parsed_data = JSON.parse(raw_data)
-  symbols_hash = parsed_data.fetch("symbols")
-  @array_symbols = symbols_hash.keys
-  render({ :template => "currency_templates/step_two.html.erb"})
+  @rate = parsed_data.dig("info", "rate")
+  render({ :template => "currency_templates/exchange.html.erb"})
 end
 
 end
